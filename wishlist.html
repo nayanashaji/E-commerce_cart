@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Ecom</title>
-    <meta name="Author" description="Nayana">
+    <title>Wishlist | Ecom</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -37,7 +36,7 @@
                     </a>
                 </li>
                 <li class="list-item-inline">
-                    <a href="cart.html" class="link cursor">
+                    <a href="./cart.html" class="link cursor">
                         <span class="nav-icon material-icons-outlined">
                             shopping_cart
                             </span>
@@ -46,32 +45,11 @@
             </ul>
         </nav>
     </header>
-    
-    <div class="products-page d-flex">
-        <aside class="side-bar">
-            <h3 class="heading-3">Filters</h3>
-            <div class="filter-container">
-                <h3 class="heading-3">Ratings</h3>
-                <div class="d-flex align-center gap">
-                    <input data-rating="4" class="radio" type="radio" id="rating-4" name="rating">
-                    <label data-rating="4" class="label" for="rating-4">4 & above</label>
-                </div>
-                <div class="d-flex align-center gap">
-                    <input data-rating="3" class="radio" type="radio" id="rating-3" name="rating">
-                    <label data-rating="3" class="label" for="rating-3">3 & above</label>
-                </div>
-                <div class="d-flex align-center gap">
-                    <input data-rating="2" class="radio" type="radio" id="rating-2" name="rating">
-                    <label data-rating="2" class="label" for="rating-2">2 & above</label>
-                </div>
-                <div class="d-flex align-center gap">
-                    <input data-rating="1" class="radio" type="radio" id="rating-1" name="rating">
-                    <label data-rating="1" class="label" for="rating-1">1 & above</label>
-                </div>
-            </div>
-        </aside>
-        <div class="product-container d-flex wrap gap" id="products"></div>
-    </div>
-    <script type="module" src="index.js"></script>
+     <main class="main">
+        <h2 class="heading-2 d-flex justify-center">Your Wishlist</h2>
+        <main class="d-flex gap justify-center">
+            <div class=" d-flex direction-column wrap gap" id="wishlist"></div>
+    </main>
+    <script type="module" src="wishlist.js"></script>
 </body>
 </html>
