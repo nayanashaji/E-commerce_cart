@@ -89,6 +89,14 @@ export const createProductCard=(products,parentContainer,findProductInCart,pageT
         ctaButton.appendChild(cartButton);
         cardDetailsContainer.appendChild(ctaButton);
 
+        const wishbutton=document.createElement("button");
+        wishbutton.classList.add("wish-button");
+        const wish=document.createElement("span");
+        wish.classList.add("material-icons-outlined","red-fill");
+        wish.innerText="favorite";
+        wishbutton.appendChild(wish);
+        cardContainer.appendChild(wishbutton);
+
         descriptionContainer.appendChild(ratings);
         cardDetailsContainer.appendChild(descriptionContainer);
         cardContainer.appendChild(imageContainer);
