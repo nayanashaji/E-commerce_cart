@@ -1,6 +1,6 @@
 import {products} from "./product.js";
 
-export const createProductCard=(products,parentContainer,findProductInCart,pageType)=>{
+export const createProductCard=(products,parentContainer,findProductInCart,findProductInwishlist,pageType)=>{
 
     for(let product of products){
         const cardContainer=document.createElement("div");
@@ -84,19 +84,28 @@ export const createProductCard=(products,parentContainer,findProductInCart,pageT
         const buttonText=document.createElement("span");
 
         const isProductInCart=findProductInCart(JSON.parse(localStorage.getItem("cart")),product._id);
-        buttonText.innerText=pageType === "cart"? "Remove": pageType ==="products" && isProductInCart?"Go to Cart":"Add to Cart";
+        buttonText.innerText=isProductInCart?"Go to Cart":"Add to Cart";
         cartButton.appendChild(buttonText);
         ctaButton.appendChild(cartButton);
         cardDetailsContainer.appendChild(ctaButton);
 
         const wishbutton=document.createElement("button");
         wishbutton.classList.add("wish-button");
+        wishbutton.setAttribute("data-id", product._id);
         const wish=document.createElement("span");
-        wish.classList.add("material-icons-outlined","red-fill");
-        wish.innerText="favorite";
+        const favimg=document.createElement("img");
+        favimg.setAttribute("src","favourite.svg");
+        favimg.classList.add("white-fill");
+        wish.appendChild(favimg);
         wishbutton.appendChild(wish);
-        cardContainer.appendChild(wishbutton);
+        
 
+        const isProductInWishList=findProductInwishlist(JSON.parse(localStorage.getItem("wish")),product._id);
+        if(isProductInWishList==false)
+            wish.classList.add("red-fill");
+
+        cardContainer.appendChild(wishbutton);
+        
         descriptionContainer.appendChild(ratings);
         cardDetailsContainer.appendChild(descriptionContainer);
         cardContainer.appendChild(imageContainer);

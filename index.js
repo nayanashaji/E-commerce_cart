@@ -1,6 +1,7 @@
 import { createProductCard } from "./createProductCard.js";
 import {products} from "./product.js";
 import { findProductInCart } from "./findProductInCart.js";
+import { findProductInwishlist } from "./findProductInwishlist.js";
 
 const productContainer=document.getElementById("products");
 const filterContainer=document.querySelector(".filter-container")
@@ -28,4 +29,4 @@ filterContainer.addEventListener("click",(e)=>{
     createProductCard(updatedProducts,productContainer,findProductInCart,"products");
 })
 
-createProductCard(products,productContainer,findProductInCart,"products");
+createProductCard(products,productContainer,findProductInCart,findProductInwishlist,"products");
