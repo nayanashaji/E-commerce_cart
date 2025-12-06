@@ -1,4 +1,5 @@
 import {products} from "./product.js";
+import { findProductInCart } from "./findProductInCart.js";
 
 export const createWishCard=(products,parentContainer,findProductInwishlist,pageType)=>{
 
@@ -63,7 +64,8 @@ export const createWishCard=(products,parentContainer,findProductInwishlist,page
           "justify-center",
           "gap",
           "cursor",
-          "btn-margin"
+          "btn-margin",
+          "remove-button"
         );
         removeButton.setAttribute("data-id", product._id);
         removeButton.innerText = "Remove";
@@ -79,10 +81,12 @@ export const createWishCard=(products,parentContainer,findProductInwishlist,page
           "justify-center",
           "gap",
           "cursor",
-          "btn-margin"
+          "btn-margin",
+          "addtocart-button"
         );
         addToCartButton.setAttribute("data-id", product._id);
-        addToCartButton.innerText = "Add to Cart";
+        let isProductInCart=findProductInCart(JSON.parse(localStorage.getItem("cart")),product._id);
+        addToCartButton.innerHTML =isProductInCart?"Go to Cart<span class='material-icons-outlined'>shopping_cart</span>":"Add to Cart <span class='material-icons-outlined'>shopping_cart</span>";
 
         ctaButton.appendChild(removeButton);
         ctaButton.appendChild(addToCartButton);

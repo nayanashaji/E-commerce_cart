@@ -19,7 +19,7 @@ productContainer.addEventListener("click",(e)=>{
         const id=cartButtonContainer.dataset.id;
         const isProductInCart=findProductInCart(cart,id);
         if(!isProductInCart){
-            const productToAddToCart=products.filter(({_id})=> _id === id);
+            let productToAddToCart=products.filter(({_id})=> _id === id);
             cart=[...cart, ...productToAddToCart];
             localStorage.setItem("cart",JSON.stringify(cart));
             cartButtonContainer.innerHTML="Go to Cart <span class='material-icons-outlined'>shopping_cart</span>";

@@ -80,12 +80,12 @@ export const createProductCard=(products,parentContainer,findProductInCart,findP
         const cart=document.createElement("span");
         cart.classList.add("material-icons-outlined");
         cart.innerText="shopping_cart";
-        cartButton.appendChild(cart);
         const buttonText=document.createElement("span");
 
         const isProductInCart=findProductInCart(JSON.parse(localStorage.getItem("cart")),product._id);
-        buttonText.innerText=isProductInCart?"Go to Cart":"Add to Cart";
+        buttonText.innerText=isProductInCart?"Go to Cart ":"Add to Cart";
         cartButton.appendChild(buttonText);
+        cartButton.appendChild(cart);
         ctaButton.appendChild(cartButton);
         cardDetailsContainer.appendChild(ctaButton);
 
