@@ -76,7 +76,7 @@ export const createProductCard=(products,parentContainer,findProductInCart,findP
             "gap",
             "cursor",
             "btn-margin");
-        cartButton.setAttribute("data-id", product._id);
+        cartButton.dataset.id = product._id;
         const cart=document.createElement("span");
         cart.classList.add("material-icons-outlined");
         cart.innerText="shopping_cart";
@@ -91,19 +91,23 @@ export const createProductCard=(products,parentContainer,findProductInCart,findP
 
         const wishbutton=document.createElement("button");
         wishbutton.classList.add("wish-button");
-        wishbutton.setAttribute("data-id", product._id);
+        wishbutton.dataset.id = product._id;
         const wish=document.createElement("span");
-        const favimg=document.createElement("img");
-        favimg.setAttribute("src","favourite.svg");
-        favimg.classList.add("white-fill");
-        wish.appendChild(favimg);
-        wishbutton.appendChild(wish);
+        wish.classList.add("material-icons-outlined");
         
 
-        const isProductInWishList=findProductInwishlist(JSON.parse(localStorage.getItem("wish")),product._id);
-        if(isProductInWishList==false)
+        const isProductInWishList=findProductInwishlist(JSON.parse(localStorage.getItem("wishlist")),product._id);
+        if(isProductInWishList)
+        {
+            wish.innerText="favorite";
             wish.classList.add("red-fill");
+        }
+        else{
+            wish.innerText="favorite_border";
+            wish.classList.add("white-fill");
+        }
 
+        wishbutton.appendChild(wish);
         cardContainer.appendChild(wishbutton);
         
         descriptionContainer.appendChild(ratings);

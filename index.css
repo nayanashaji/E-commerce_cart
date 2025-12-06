@@ -113,17 +113,13 @@
 }
 
 .white-fill{
-  fill: white;
-  stroke: black;
-  stroke-width: 2;
-  width: 30px;
-  height: 30px;
+  color: black;
+  font-size: 2rem;
 }
 
 .red-fill{
-  fill: red;
-  width: 30px;
-  height: 30px;
+  color: red;
+  font-size: 2rem;
 }
 
 .wish-button{
