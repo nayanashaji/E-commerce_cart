@@ -1,4 +1,5 @@
 import {products} from "./product.js";
+import { findProductInwishlist } from "./findProductInwishlist.js";
 
 export const createHorizontalProductCard=(products,parentContainer,findProductInCart,pageType)=>{
 
@@ -87,7 +88,8 @@ export const createHorizontalProductCard=(products,parentContainer,findProductIn
           "justify-center",
           "gap",
           "cursor",
-          "btn-margin"
+          "btn-margin",
+          "remove-butn"
         );
         removeButton.setAttribute("data-id", product._id);
         removeButton.innerText = "Remove";
@@ -103,10 +105,13 @@ export const createHorizontalProductCard=(products,parentContainer,findProductIn
           "justify-center",
           "gap",
           "cursor",
-          "btn-margin"
+          "btn-margin",
+          "savewish-butn"
         );
         saveButton.setAttribute("data-id", product._id);
-        saveButton.innerText = "Save to Wishlist";
+        let isProductInWishList=findProductInwishlist(JSON.parse(localStorage.getItem("wishlist")),product._id);
+        saveButton.innerHTML =isProductInWishList?"Go to Wishlist":"Save to Wishlist";
+        
 
         ctaButton.appendChild(removeButton);
         ctaButton.appendChild(saveButton);
