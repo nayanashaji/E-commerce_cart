@@ -7,6 +7,7 @@ import { products } from "./product.js";
 let cartContainer=document.getElementById("cart");
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
 let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+let placeorderContainer=document.querySelector(".placeorder-butn");
 
 priceDetailsContainer(cart,cartContainer,findProductInCart,"cart");
 
@@ -38,6 +39,10 @@ cartContainer.addEventListener("click",(e)=>{
             location.href="wishlist.html";
         }
     }
+});
+
+placeorderContainer.addEventListener("click",(e)=>{
+    alert("Thank you for shopping with us!");
 });
 
 createHorizontalProductCard(cart,cartContainer,findProductInCart,"cart");
